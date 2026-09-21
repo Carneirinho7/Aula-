@@ -1,0 +1,45 @@
+body {
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    background-color: #070303;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+}
+
+.container {
+    width: 350px;
+
+    background-color: rgb(212, 14, 14);
+
+    padding: 35px;
+
+    border-radius: 12px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+
+    text-align: center;
+}
+
+h1 {
+
+    font-size: 30px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin-bottom: 25px;
+
+    color: #000000;
+}
+
+p {
+    font-size: 18px;
+
+    color: #d0cbcb;
+
+    margin: 15px 0;
+}
