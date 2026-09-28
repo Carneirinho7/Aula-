@@ -88,3 +88,25 @@ button {
 button:hover {
     background: var(--azul-escuro);
 }
+
+.login-container {
+    width: min(100%, 380px);
+    text-align: left;
+}
+
+.login-container form {
+    display: grid;
+    gap: 10px;
+}
+
+.login-container input {
+    width: 100%;
+}
+
+.login-button {
+    margin-top: 8px;
+}
+
+.login-mensagem {
+    font-weight: 600;
+}
