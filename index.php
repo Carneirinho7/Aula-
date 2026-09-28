@@ -9,6 +9,7 @@
 <body>
     <a href="idade.php"> Identificador de idade </a>
     <a href="notas.php"> notas </a>
+    <a href="login-basico.php">login</a>
 </body>
 </html>
 
