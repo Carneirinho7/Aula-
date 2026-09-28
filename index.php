@@ -9,8 +9,9 @@
 <body>
     <a href="idade.php"> Identificador de idade </a>
     <a href="notas.php"> notas </a>
-    <a href="notas_get.php">Notas vGet</a>
+    <a href="notas_get.php">Notas</a>
 </body>
 </html>
+
 
 
