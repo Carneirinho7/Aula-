@@ -8,6 +8,6 @@
 <body>
     <a href="idade.php"> Identificador de idade </a>
     <a href="notas.php"> notas </a>
-    <a href="notas_get.php">notas_get</a>
+    <a href="notas_get.php">Notas vGet</a>
 </body>
 </html>
