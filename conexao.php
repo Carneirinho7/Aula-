@@ -2,7 +2,7 @@
 
 // dados para entrar no myslq
 
-$hots = "localhots";
+$host = "localhots";
 $banco = "thiago315";
 $usuario = "thiago315";
 $senha = "315!@#";
