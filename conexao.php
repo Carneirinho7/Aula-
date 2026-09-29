@@ -10,7 +10,7 @@ $senha = "315!@#";
 //PDO = PHP data  obejtos = e uma ferramenta de PHP para conversr com banco de dados
 
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=$banco;charset=utfmb4",$usuario,$senha); 
+    $pdo = new PDO("mysql:host=$host;dbname=$banco;charset=utf8mb4",$usuario,$senha); 
     $pdo->setAttribute(
 // -> = Serve para puxar algo que pertece aquele objeto
 // PDO:: = ATTR_ERRMODE, e para confugurar o modo de errros do PDO
