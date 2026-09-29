@@ -7,6 +7,7 @@ $banco = "thiago315";
 $usuario = "thiago315";
 $senha = "315!@#";
 
+
 //PDO = PHP data  obejtos = e uma ferramenta de PHP para conversr com banco de dados
 
 try {
