@@ -5,7 +5,7 @@
 
      $sql = "CREATE TABLE IF NOT EXISTS teste (
       id INT AUTO_INCREMENT PRIMARY KEY,
-      nome VARCHAR(100),
+      nome VARCHAR(101),
       idade INT
       )";
 
