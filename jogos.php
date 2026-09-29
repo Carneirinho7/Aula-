@@ -1,8 +1,6 @@
 <?php
 require "conexao.php";
 
-echo "<br> Meu sistema está conectado!";
-
 $sql = "CREATE TABLE IF NOT EXISTS jogos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100),
@@ -11,8 +9,6 @@ $sql = "CREATE TABLE IF NOT EXISTS jogos (
 )";
 
 $pdo->exec($sql);
-
-echo "<br> Tabela jogos criada com sucesso!";
 
 if (isset($_POST["nome"])) {
     $nome = $_POST["nome"];
@@ -23,7 +19,7 @@ if (isset($_POST["nome"])) {
             VALUES ('$nome', '$genero', '$nota')";
 
     $pdo->exec($sql);
-    echo "Jogo cadastrado com sucesso!";
+    $mensagem = "Jogo cadastrado com sucesso!";
 }
 ?>
 
@@ -38,6 +34,10 @@ if (isset($_POST["nome"])) {
 <body>
     <main class="container jogos-container">
         <h1>Cadastrar jogo</h1>
+
+        <?php if (isset($mensagem)) { ?>
+            <p class="jogos-mensagem"><?php echo $mensagem; ?></p>
+        <?php } ?>
 
         <form method="POST" class="jogos-form">
             <label for="nome">Nome do jogo:</label>

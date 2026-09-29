@@ -22,9 +22,6 @@ try {
       
     );
 
-    echo "Conectado com secesso!";
-
-
 } catch (PDOException $erro) {
 
     echo "Erro ao conectar:".$erro->getMessage();
