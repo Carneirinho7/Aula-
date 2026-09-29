@@ -33,24 +33,24 @@ if (isset($_POST["nome"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar jogos</title>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <h1>Cadastrar jogo</h1>
+    <main class="container jogos-container">
+        <h1>Cadastrar jogo</h1>
 
-    <form method="POST">
-        <label>Nome do jogo:</label>
-        <input type="text" name="nome" required>
-        <br><br>
+        <form method="POST" class="jogos-form">
+            <label for="nome">Nome do jogo:</label>
+            <input id="nome" type="text" name="nome" required>
 
-        <label>Gênero:</label>
-        <input type="text" name="genero" required>
-        <br><br>
+            <label for="genero">Gênero:</label>
+            <input id="genero" type="text" name="genero" required>
 
-        <label>Nota:</label>
-        <input type="number" name="nota" required>
-        <br><br>
+            <label for="nota">Nota:</label>
+            <input id="nota" type="number" name="nota" required>
 
-        <button type="submit">Cadastrar</button>
-    </form>
+            <button type="submit">Cadastrar</button>
+        </form>
+    </main>
 </body>
 </html>

@@ -110,3 +110,17 @@ button:hover {
 .login-mensagem {
     font-weight: 600;
 }
+
+.jogos-form {
+    display: grid;
+    gap: 10px;
+    text-align: left;
+}
+
+.jogos-form input {
+    width: 100%;
+}
+
+.jogos-form button {
+    margin-top: 8px;
+}
