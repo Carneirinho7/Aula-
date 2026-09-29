@@ -29,7 +29,7 @@ if (isset($_POST["nome"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar jogos</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="index.css?v=2">
 </head>
 <body>
     <main class="container jogos-container">
