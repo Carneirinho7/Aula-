@@ -113,13 +113,14 @@ button:hover {
 
 .jogos-form {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
+    grid-template-columns: 100px 1fr;
+    gap: 12px 10px;
     text-align: left;
+    align-items: center;
 }
 
 .jogos-form label {
-    margin-top: 4px;
+    margin: 0;
 }
 
 .jogos-form input {
@@ -127,6 +128,7 @@ button:hover {
 }
 
 .jogos-form button {
+    grid-column: 2;
     margin-top: 8px;
 }
 
