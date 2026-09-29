@@ -1,6 +1,8 @@
 <?php
 require "conexao.php";
 
+echo "<br> Meu sistema está conectado!";
+
 $sql = "CREATE TABLE IF NOT EXISTS jogos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100),
@@ -9,6 +11,8 @@ $sql = "CREATE TABLE IF NOT EXISTS jogos (
 )";
 
 $pdo->exec($sql);
+
+echo "<br> Tabela jogos criada com sucesso!";
 
 if (isset($_POST["nome"])) {
     $nome = $_POST["nome"];
