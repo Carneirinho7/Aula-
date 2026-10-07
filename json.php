@@ -51,7 +51,14 @@ file_put_contents($caminho,$jsonAtualizado);
 
     }
 
+    if ($acao === "deletar"){
+        
+
+    }
+
 echo "DADOS REGISTRADOS EM dados.json";
+
+
 
 }
 ?>
@@ -88,6 +95,9 @@ echo "DADOS REGISTRADOS EM dados.json";
       <input type="text" name="curso" required>
 
       <button type="submit"name="acao" value="atualizar">atualizar</button>            
+      </form>
+      <form method="$_POST">
+             <button type="submit"name="acao" value="deletar">deletar</button>  
       </form>
 
       <h2>Alunos Cadastrados</h2>
