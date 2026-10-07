@@ -1,0 +1,37 @@
+VETORES
+
+aluno[5]
+
+0 = aluno 1
+1 = aluno 2
+2 = aluno 3
+3 = aluno 4
+4 = aluno 5
+
+ISSO E UMA ARRAY SEQUENCIAL
+
+ARRAY ASSOCIATIVO
+
+"nome": "aluno 1"
+"nome2": "aluno 2"
+
+Exemplo
+[
+   {
+      
+      "nome": "lucas"
+      "idade":24,
+      "curso": Desenvolvimento de Sistema"
+
+   }
+
+]
+
+C = CREAT = CRIAR
+R = READ = LER
+U = UPDATE = ATT
+D = DELETE = DELETAR
+
+ JSON_PRETTY_PRINT = FORMATAR O JSON CORRETAMENTE 
+
+ JSON_UNESCAPED_UNICODE = LER CARACTERES ESPECIAS
