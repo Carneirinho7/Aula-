@@ -11,6 +11,10 @@ $alunos = json_decode($json, true);
 
 if($_SERVER["REQUEST_METHOD"] == "POST") { 
 
+   $acao = $_POST["acao"];
+
+   if ($acao === "cadastrar") {
+
 // 4. CRIAR ALUNO
 $novoAluno =[
    "nome" => "thiago",
@@ -29,10 +33,27 @@ $jsonAtualizado = json_encode($alunos,
 
 // 7. SALVAR  NO ARQUIVO
 file_put_contents($caminho,$jsonAtualizado);
+   }
+    if ($acao === "atualizar") {
+   // PEGAR OS DADOS  DO FORMULARIO
+   $nome = $_POST["nome"];
+   $novaidade = $_POST["idade"];
+   $novoCurso = $_POST["curso"];
+
+   // PERCORRER TODOS OS ALUNOS
+   foreach($alunos as $posicao => $aluno){
+      if($aluno["nome"] == $nome){
+            $alunos[$posicao]["idade"] = $novaidade;
+            $alunos[$posicao]["curso"] = $novoCurso;
+      }
+
+   }
+
+    }
 
 echo "DADOS REGISTRADOS EM dados.json";
-}
 
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -53,8 +74,20 @@ echo "DADOS REGISTRADOS EM dados.json";
       <label>Curso:</label>
       <input type="text" name="curso" required>
 
-      <button> type="submit">Cadastrar</button>            
+      <button type="submit" name="acao" value="cadastrar">cadastrar</button>            
+      </form>
 
+      <form method="$_POST">
+      <label>Nome:</label>
+      <input type="text" name="nome" required>
+
+      <label>Idade:</label>
+      <input type="text" name="idade" required>
+
+      <label>Curso:</label>
+      <input type="text" name="curso" required>
+
+      <button type="submit"name="acao" value="atualizar">atualizar</button>            
       </form>
 
       <h2>Alunos Cadastrados</h2>
