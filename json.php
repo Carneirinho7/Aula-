@@ -26,7 +26,7 @@ $jsonAtualizado = json_encode($alunos,
 );
 
 // 7. SALVAR  NO ARQUIVO
-file_put_contents($caminho,$jsonAtualizado)
+file_put_contents($caminho,$jsonAtualizado);
 
 ?>
 <!DOCTYPE html>
