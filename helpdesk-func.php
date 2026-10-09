@@ -1,13 +1,14 @@
 <?php
 
-function consultarChamados()
-{
-    if (!file_exists('chamados.json')) {
-        file_put_contents('chamados.json', '[]');
+function listarChamados() {
+    $arquivo = __DIR__ . '/chamados.json';
+
+    if (!file_exists($arquivo)) {
+        file_put_contents($arquivo, '[]');
     }
 
-    $arquivo = file_get_contents('chamados.json');
-    $chamados = json_decode($arquivo, true);
+    $dados = file_get_contents($arquivo);
+    $chamados = json_decode($dados, true);
 
     if (!is_array($chamados)) {
         return [];
@@ -16,51 +17,57 @@ function consultarChamados()
     return $chamados;
 }
 
-function salvarChamados($chamados)
-{
-    $json = json_encode($chamados, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-    return file_put_contents('chamados.json', $json) !== false;
-}
+function salvarChamados($chamados) {
+    $arquivo = __DIR__ . '/chamados.json';
+    $dados = json_encode($chamados, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 
-function cadastrarChamado($dados)
-{
-    if (trim($dados['nome']) == '' || trim($dados['descricao']) == '') {
+    if ($dados === false) {
         return false;
     }
 
-    $chamados = consultarChamados();
-    $chamado = [
-        'nome' => $dados['nome'],
-        'setor' => $dados['setor'],
-        'equipamento' => $dados['equipamento'],
-        'descricao' => $dados['descricao'],
-        'prioridade' => $dados['prioridade'],
+    return file_put_contents($arquivo, $dados) !== false;
+}
+
+
+function cadastrarChamado($nome, $setor, $equipamento, $descricao, $prioridade) {
+    if (trim($nome) == '' || trim($descricao) == '') {
+        return false;
+    }
+
+    $chamados = listarChamados();
+
+    $novoChamado = [
+        'nome' => $nome,
+        'setor' => $setor,
+        'equipamento' => $equipamento,
+        'descricao' => $descricao,
+        'prioridade' => $prioridade,
         'status' => 'Aberto'
     ];
 
-    $chamados[] = $chamado;
+    $chamados[] = $novoChamado;
     return salvarChamados($chamados);
 }
 
-function atualizarStatusChamado($numero, $status)
-{
-    $chamados = consultarChamados();
+// Atualiza o status de um chamado
+function atualizarChamado($numero, $novoStatus) {
+    $chamados = listarChamados();
 
     if (!isset($chamados[$numero])) {
         return false;
     }
 
-    if ($status != 'Aberto' && $status != 'Em andamento' && $status != 'Resolvido') {
+    if ($novoStatus != 'Aberto' && $novoStatus != 'Em andamento' && $novoStatus != 'Resolvido') {
         return false;
     }
 
-    $chamados[$numero]['status'] = $status;
+    $chamados[$numero]['status'] = $novoStatus;
     return salvarChamados($chamados);
 }
 
-function excluirChamado($numero)
-{
-    $chamados = consultarChamados();
+// Exclui um chamado
+function excluirChamado($numero) {
+    $chamados = listarChamados();
 
     if (!isset($chamados[$numero])) {
         return false;
@@ -68,28 +75,32 @@ function excluirChamado($numero)
 
     unset($chamados[$numero]);
     $chamados = array_values($chamados);
+
     return salvarChamados($chamados);
 }
 
-function contarChamados()
-{
-    $chamados = consultarChamados();
-    $contagem = [
+// Faz a contagem dos chamados por status
+function contarChamados() {
+    $chamados = listarChamados();
+
+    $quantidades = [
         'total' => count($chamados),
-        'Aberto' => 0,
-        'Em andamento' => 0,
-        'Resolvido' => 0
+        'abertos' => 0,
+        'andamento' => 0,
+        'resolvidos' => 0
     ];
 
     foreach ($chamados as $chamado) {
-        if ($chamado['status'] == 'Aberto') {
-            $contagem['Aberto']++;
-        } elseif ($chamado['status'] == 'Em andamento') {
-            $contagem['Em andamento']++;
-        } elseif ($chamado['status'] == 'Resolvido') {
-            $contagem['Resolvido']++;
+        if (isset($chamado['status'])) {
+            if ($chamado['status'] == 'Aberto') {
+                $quantidades['abertos']++;
+            } elseif ($chamado['status'] == 'Em andamento') {
+                $quantidades['andamento']++;
+            } elseif ($chamado['status'] == 'Resolvido') {
+                $quantidades['resolvidos']++;
+            }
         }
     }
 
-    return $contagem;
+    return $quantidades;
 }
