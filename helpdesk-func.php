@@ -2,17 +2,11 @@
 
 function consultarChamados()
 {
-    $caminho = __DIR__ . '/chamados.json';
-
-    if (!file_exists($caminho)) {
-        file_put_contents($caminho, '[]');
+    if (!file_exists('chamados.json')) {
+        file_put_contents('chamados.json', '[]');
     }
 
-    $arquivo = file_get_contents($caminho);
-    if ($arquivo === false) {
-        return [];
-    }
-
+    $arquivo = file_get_contents('chamados.json');
     $chamados = json_decode($arquivo, true);
 
     if (!is_array($chamados)) {
@@ -25,44 +19,22 @@ function consultarChamados()
 function salvarChamados($chamados)
 {
     $json = json_encode($chamados, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-    if ($json === false) {
-        return false;
-    }
-
-    return file_put_contents(__DIR__ . '/chamados.json', $json) !== false;
+    return file_put_contents('chamados.json', $json) !== false;
 }
 
 function cadastrarChamado($dados)
 {
-    $nome = trim($dados['nome'] ?? '');
-    $descricao = trim($dados['descricao'] ?? '');
-    $setor = $dados['setor'] ?? '';
-    $equipamento = $dados['equipamento'] ?? '';
-    $prioridade = $dados['prioridade'] ?? '';
-
-    if ($nome == '' || $descricao == '') {
-        return false;
-    }
-
-    if (!in_array($setor, ['Produção', 'Administrativo', 'Logística', 'Financeiro', 'TI'], true)) {
-        return false;
-    }
-
-    if (!in_array($equipamento, ['Computador', 'Impressora', 'Rede', 'Sistema', 'Outro'], true)) {
-        return false;
-    }
-
-    if (!in_array($prioridade, ['Baixa', 'Média', 'Alta'], true)) {
+    if (trim($dados['nome']) == '' || trim($dados['descricao']) == '') {
         return false;
     }
 
     $chamados = consultarChamados();
     $chamado = [
-        'nome' => $nome,
-        'setor' => $setor,
-        'equipamento' => $equipamento,
-        'descricao' => $descricao,
-        'prioridade' => $prioridade,
+        'nome' => $dados['nome'],
+        'setor' => $dados['setor'],
+        'equipamento' => $dados['equipamento'],
+        'descricao' => $dados['descricao'],
+        'prioridade' => $dados['prioridade'],
         'status' => 'Aberto'
     ];
 
@@ -110,11 +82,11 @@ function contarChamados()
     ];
 
     foreach ($chamados as $chamado) {
-        if (($chamado['status'] ?? '') == 'Aberto') {
+        if ($chamado['status'] == 'Aberto') {
             $contagem['Aberto']++;
-        } elseif (($chamado['status'] ?? '') == 'Em andamento') {
+        } elseif ($chamado['status'] == 'Em andamento') {
             $contagem['Em andamento']++;
-        } elseif (($chamado['status'] ?? '') == 'Resolvido') {
+        } elseif ($chamado['status'] == 'Resolvido') {
             $contagem['Resolvido']++;
         }
     }
