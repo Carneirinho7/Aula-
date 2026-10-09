@@ -8,6 +8,10 @@ function listarChamados() {
     }
 
     $dados = file_get_contents($arquivo);
+    if ($dados === false) {
+        return [];
+    }
+
     $chamados = json_decode($dados, true);
 
     if (!is_array($chamados)) {
@@ -30,7 +34,24 @@ function salvarChamados($chamados) {
 
 
 function cadastrarChamado($nome, $setor, $equipamento, $descricao, $prioridade) {
+    if (!is_string($nome) || !is_string($setor) || !is_string($equipamento)
+        || !is_string($descricao) || !is_string($prioridade)) {
+        return false;
+    }
+
     if (trim($nome) == '' || trim($descricao) == '') {
+        return false;
+    }
+
+    if (!in_array($setor, ['Produção', 'Administrativo', 'Logística', 'Financeiro', 'TI'], true)) {
+        return false;
+    }
+
+    if (!in_array($equipamento, ['Computador', 'Impressora', 'Rede', 'Sistema', 'Outro'], true)) {
+        return false;
+    }
+
+    if (!in_array($prioridade, ['Baixa', 'Média', 'Alta'], true)) {
         return false;
     }
 
@@ -49,8 +70,11 @@ function cadastrarChamado($nome, $setor, $equipamento, $descricao, $prioridade) 
     return salvarChamados($chamados);
 }
 
-// Atualiza o status de um chamado
 function atualizarChamado($numero, $novoStatus) {
+    if (!is_int($numero) || !is_string($novoStatus)) {
+        return false;
+    }
+
     $chamados = listarChamados();
 
     if (!isset($chamados[$numero])) {
@@ -65,8 +89,11 @@ function atualizarChamado($numero, $novoStatus) {
     return salvarChamados($chamados);
 }
 
-// Exclui um chamado
 function excluirChamado($numero) {
+    if (!is_int($numero)) {
+        return false;
+    }
+
     $chamados = listarChamados();
 
     if (!isset($chamados[$numero])) {
@@ -79,7 +106,6 @@ function excluirChamado($numero) {
     return salvarChamados($chamados);
 }
 
-// Faz a contagem dos chamados por status
 function contarChamados() {
     $chamados = listarChamados();
 
@@ -91,7 +117,7 @@ function contarChamados() {
     ];
 
     foreach ($chamados as $chamado) {
-        if (isset($chamado['status'])) {
+        if (is_array($chamado) && isset($chamado['status'])) {
             if ($chamado['status'] == 'Aberto') {
                 $quantidades['abertos']++;
             } elseif ($chamado['status'] == 'Em andamento') {

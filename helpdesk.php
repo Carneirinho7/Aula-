@@ -1,16 +1,16 @@
 <?php
-require_once 'helpdesk-func.php';
+require_once __DIR__ . '/helpdesk-func.php';
 
 $mensagem = '';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Cadastrar chamado
     if (isset($_POST['cadastrar'])) {
-        $nome = $_POST['nome'] ?? '';
-        $setor = $_POST['setor'] ?? '';
-        $equipamento = $_POST['equipamento'] ?? '';
-        $descricao = $_POST['descricao'] ?? '';
-        $prioridade = $_POST['prioridade'] ?? '';
+        $nome = is_string($_POST['nome'] ?? null) ? $_POST['nome'] : '';
+        $setor = is_string($_POST['setor'] ?? null) ? $_POST['setor'] : '';
+        $equipamento = is_string($_POST['equipamento'] ?? null) ? $_POST['equipamento'] : '';
+        $descricao = is_string($_POST['descricao'] ?? null) ? $_POST['descricao'] : '';
+        $prioridade = is_string($_POST['prioridade'] ?? null) ? $_POST['prioridade'] : '';
 
         if (cadastrarChamado($nome, $setor, $equipamento, $descricao, $prioridade)) {
             $mensagem = 'Chamado cadastrado com sucesso!';
@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Atualizar chamado
     if (isset($_POST['atualizar'])) {
         $numero = filter_var($_POST['numero'] ?? '', FILTER_VALIDATE_INT);
-        $status = $_POST['status'] ?? '';
+        $status = is_string($_POST['status'] ?? null) ? $_POST['status'] : '';
 
         if ($numero !== false && atualizarChamado($numero, $status)) {
             $mensagem = 'Status atualizado!';
@@ -103,12 +103,12 @@ $quantidades = contarChamados();
 
     <?php foreach ($chamados as $numero => $chamado) { ?>
         <h3>Chamado número <?php echo $numero + 1; ?></h3>
-        <p>Nome: <?php echo htmlspecialchars($chamado['nome'] ?? '', ENT_QUOTES, 'UTF-8'); ?></p>
-        <p>Setor: <?php echo htmlspecialchars($chamado['setor'] ?? '', ENT_QUOTES, 'UTF-8'); ?></p>
-        <p>Equipamento: <?php echo htmlspecialchars($chamado['equipamento'] ?? '', ENT_QUOTES, 'UTF-8'); ?></p>
-        <p>Descrição: <?php echo htmlspecialchars($chamado['descricao'] ?? '', ENT_QUOTES, 'UTF-8'); ?></p>
-        <p>Prioridade: <?php echo htmlspecialchars($chamado['prioridade'] ?? '', ENT_QUOTES, 'UTF-8'); ?></p>
-        <p>Status: <?php echo htmlspecialchars($chamado['status'] ?? '', ENT_QUOTES, 'UTF-8'); ?></p>
+        <p>Nome: <?php echo htmlspecialchars((string) ($chamado['nome'] ?? ''), ENT_QUOTES, 'UTF-8'); ?></p>
+        <p>Setor: <?php echo htmlspecialchars((string) ($chamado['setor'] ?? ''), ENT_QUOTES, 'UTF-8'); ?></p>
+        <p>Equipamento: <?php echo htmlspecialchars((string) ($chamado['equipamento'] ?? ''), ENT_QUOTES, 'UTF-8'); ?></p>
+        <p>Descrição: <?php echo htmlspecialchars((string) ($chamado['descricao'] ?? ''), ENT_QUOTES, 'UTF-8'); ?></p>
+        <p>Prioridade: <?php echo htmlspecialchars((string) ($chamado['prioridade'] ?? ''), ENT_QUOTES, 'UTF-8'); ?></p>
+        <p>Status: <?php echo htmlspecialchars((string) ($chamado['status'] ?? ''), ENT_QUOTES, 'UTF-8'); ?></p>
 
         <form method="POST">
             <input type="hidden" name="numero" value="<?php echo $numero; ?>">
