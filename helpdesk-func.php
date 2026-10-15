@@ -87,16 +87,18 @@ function excluirChamado(int $numero): bool {
         return false;
     }
 
+    //unset = deletar aquelas posiçoes de espesifica
     unset($chamados[$numero]);
+    //att a  lista  de chamados em array
     $chamados = array_values($chamados);
-
+    // salvar os chamados novamente pela funçao salvarchamados
     return salvarChamados($chamados);
 }
 
 function contarChamados(): array {
     $chamados = listarChamados();
 
-    $quantidades = [
+    $relatorio = [
         'total' => count($chamados),
         'abertos' => 0,
         'andamento' => 0,
@@ -106,14 +108,14 @@ function contarChamados(): array {
     foreach ($chamados as $chamado) {
         if (is_array($chamado) && isset($chamado['status'])) {
             if ($chamado['status'] == 'Aberto') {
-                $quantidades['abertos']++;
+                $relatorio['abertos']++;
             } elseif ($chamado['status'] == 'Em andamento') {
-                $quantidades['andamento']++;
+                $relatorio['andamento']++;
             } elseif ($chamado['status'] == 'Resolvido') {
-                $quantidades['resolvidos']++;
+                $relatorio['resolvidos']++;
             }
         }
     }
 
-    return $quantidades;
+    return $relatorio;
 }
