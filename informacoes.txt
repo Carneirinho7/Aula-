@@ -112,3 +112,12 @@ funcoes2.php:
     <h2><?= $situacao ?></h2>
 </body>
 </html>
+
+API = Application Programming Interface pt-br= interface de progamaçoes de aplicaçao
+
+Significado API = e uma maneira de permitir que um software se comunique com outros software por meio de regras e opereçoes definidas
+
+API,REST,PHP,JSON,ENDPOINT
+
+ENDPOINT= e um ponto de aceso para a API identificado pela URL e pelo metado HTTP utilizado podendo ser = GET,PUT,DELETE,POST
+
