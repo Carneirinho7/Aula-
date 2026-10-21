@@ -40,7 +40,7 @@
             <div class="sobre-texto">
                 <h3>Quem sou eu?</h3>
                 <p>
-                    Me chamo Felipe Fermino sou 
+                    Me chamo Thiago Carneiro sou 
                     estudante de desenvolvimento de sistemas.
                 </p>
                 <p>
