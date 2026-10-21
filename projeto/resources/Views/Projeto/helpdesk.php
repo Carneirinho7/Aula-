@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // } else {$acao = "";
         //;
         
-        if (cadastrarChamado($nome, $setor, $equipamento, $descricao, $prioridade)) {
+        if ($this->cadastrarChamado($nome, $setor, $equipamento, $descricao, $prioridade)) {
             $mensagem = 'Chamado cadastrado com sucesso!';
         } else {
             $mensagem = 'Preencha o nome e a descrição do problema.';
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $numero = filter_var($_POST['numero'] ?? '', FILTER_VALIDATE_INT);
         $status = is_string($_POST['status'] ?? null) ? $_POST['status'] : '';
 
-        if ($numero !== false && atualizarChamado($numero, $status)) {
+        if ($numero !== false && $this->atualizarChamado($numero, $status)) {
             $mensagem = 'Status atualizado!';
         } else {
             $mensagem = 'Não foi possível atualizar o chamado.';
@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['excluir'])) {
         $numero = filter_var($_POST['numero'] ?? '', FILTER_VALIDATE_INT);
 
-        if ($numero !== false && excluirChamado($numero)) {
+        if ($numero !== false && $this->excluirChamado($numero)) {
             $mensagem = 'Chamado excluído!';
         } else {
             $mensagem = 'Chamado não encontrado.';
@@ -52,8 +52,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 
-$chamados = listarChamados();
-$quantidades = contarChamados();
+$chamados = $this->listarChamados();
+$quantidades = $this->contarChamados();
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
