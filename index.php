@@ -6,7 +6,7 @@
      $rota = $_GET['rota'] ?? 'portfolio'; 
 
      //Definindo a variavel  de verificaçao  do metado HTTP requisitado
-     $metado  = $_SERVER['REQUEST_METHOD'];
+     $metodo  = $_SERVER['REQUEST_METHOD'];
 
      // Verificando se a rato existe se nao existir define status 404
      if(!array_key_exists($rota, $rotas)){
@@ -16,10 +16,10 @@
      }  
 
      //
-     [$controller, $acao] = $rotas[$rotas][$metado];
+     [$controller, $acao] = $rotas[$rotas][$metodo];
 
      //
-     $controller -> $acao
+     $controller -> $acao();
 
 
 
