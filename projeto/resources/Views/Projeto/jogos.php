@@ -1,5 +1,5 @@
 <?php
-require "conexao.php";
+require __DIR__ . "/../../../config/conexao.php";
 
 $sql = "CREATE TABLE IF NOT EXISTS jogos (
     id INT AUTO_INCREMENT PRIMARY KEY,

@@ -9,7 +9,10 @@
          'GET'  => [
             'portfolio' =>[new PortifolioController(), 'index'],
             'helpdesk'  =>[new HelpdeskController(), 'index'],
-            'jogos'     =>[],
+            'idade'     =>[new PortifolioController(), 'idade'],
+            'jogos'     =>[new PortifolioController(), 'jogos'],
+            'notas'     =>[new PortifolioController(), 'notas'],
+            'login-basico' =>[new PortifolioController(), 'loginBasico'],
             //outras atividades
           ],
 

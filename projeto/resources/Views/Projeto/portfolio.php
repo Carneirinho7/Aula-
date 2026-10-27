@@ -63,25 +63,25 @@
                     <h3>Verificação de Idade</h3>
                     <p>Uma página interativa para praticar formulários, condições e manipulação de dados.</p>
                     <div class="tecnologias"><span>HTML</span><span>CSS</span><span>PHP</span></div>
-                    <a href="idade.php" class="link-projeto">Ver projeto</a>
+                    <a href="?rota=idade" class="link-projeto">Ver projeto</a>
                 </div>
                 <div class="projeto-card">
                     <h3>Cadastro de Jogos</h3>
                     <p>Cadastro de jogos com prática de persistência e manipulação de informações.</p>
                     <div class="tecnologias"><span>HTML</span><span>CSS</span><span>PHP</span><span>MySQL</span></div>
-                    <a href="jogos.php" class="link-projeto">Ver projeto</a>
+                    <a href="?rota=jogos" class="link-projeto">Ver projeto</a>
                 </div>
                 <div class="projeto-card">
                     <h3>Notas</h3>
                     <p>Exercício para organizar informações e trabalhar com formulários.</p>
                     <div class="tecnologias"><span>HTML</span><span>CSS</span><span>PHP</span></div>
-                    <a href="notas.php" class="link-projeto">Ver projeto</a>
+                    <a href="?rota=notas" class="link-projeto">Ver projeto</a>
                 </div>
                 <div class="projeto-card">
                     <h3>Login básico</h3>
                     <p>Uma introdução à lógica de autenticação e ao processamento no servidor.</p>
                     <div class="tecnologias"><span>HTML</span><span>CSS</span><span>PHP</span></div>
-                    <a href="login-basico.php" class="link-projeto">Ver projeto</a>
+                    <a href="?rota=login-basico" class="link-projeto">Ver projeto</a>
                 </div>
             </div>
         </section>
