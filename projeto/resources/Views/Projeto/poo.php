@@ -25,7 +25,20 @@ class Personagem {
         $this->dano = $dano;
     }
 
-    public function getVida(){}
+    public function getVida(){
+          return $this->vida;
+    }
+
+     public function setVida($vida){
+        if($this->vida < 0){
+            $this->vida = 0;
+            echo "Vida nao pode ser negativa!/n"; 
+            return;
+        }
+
+        $this->vida = $vida; 
+    }
+
 
     public function atacar(): void {
         echo "$this->nome realizou um ataque!";
@@ -33,6 +46,9 @@ class Personagem {
 }
 
 $lucas = new Personagem("Lucas", 100, 10);
+
+$lucas->setvida(50);
+
 $aurora = new Personagem("Aurora", 50, 5);
 $chloe = new Personagem("Chloe", 30, 3);
 

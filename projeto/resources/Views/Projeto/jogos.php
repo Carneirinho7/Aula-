@@ -29,27 +29,36 @@ if (isset($_POST["nome"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar jogos</title>
-    <link rel="stylesheet" href="index.css?v=2">
+    <link rel="stylesheet" href="/projeto/resources/css/index.css">
 </head>
-<body>
-    <main class="container jogos-container">
-        <h1>Cadastrar jogo</h1>
-
+<body class="form-page">
+    <nav class="form-nav" aria-label="Navegação">
+        <a class="back-link" href="?rota=portfolio">Voltar ao portfólio</a>
+    </nav>
+    <main class="form-shell">
+        <header class="form-heading">
+            <span class="form-kicker">Sua coleção</span>
+            <h1>Cadastrar jogo</h1>
+            <p>Adicione um jogo à sua lista.</p>
+        </header>
         <?php if (isset($mensagem)) { ?>
-            <p class="jogos-mensagem"><?php echo $mensagem; ?></p>
+            <p class="notice notice-success jogos-mensagem" role="status"><?= htmlspecialchars($mensagem, ENT_QUOTES, "UTF-8") ?></p>
         <?php } ?>
 
-        <form method="POST" class="jogos-form">
-            <label for="nome">Nome do jogo:</label>
-            <input id="nome" type="text" name="nome" required>
-
-            <label for="genero">Gênero:</label>
-            <input id="genero" type="text" name="genero" required>
-
-            <label for="nota">Nota:</label>
-            <input id="nota" type="number" name="nota" required>
-
-            <button type="submit">Cadastrar</button>
+        <form method="POST" class="form-fields">
+            <div class="field">
+                <label for="nome">Nome do jogo</label>
+                <input id="nome" type="text" name="nome" maxlength="100" required>
+            </div>
+            <div class="field">
+                <label for="genero">Gênero</label>
+                <input id="genero" type="text" name="genero" maxlength="50" required>
+            </div>
+            <div class="field">
+                <label for="nota">Nota</label>
+                <input id="nota" type="number" name="nota" min="0" max="10" required>
+            </div>
+            <button class="form-submit" type="submit">Cadastrar jogo</button>
         </form>
     </main>
 </body>
