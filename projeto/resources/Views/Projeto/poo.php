@@ -14,7 +14,9 @@
 // Mostrar o que é necessário e esconder detalhes complicados de funcionamento.
 
 // Exemplo com POO
-class Personagem {
+
+
+    abstract class Personagem {
     public string $nome;
     private int $vida;
     public int $dano;
@@ -25,32 +27,35 @@ class Personagem {
         $this->dano = $dano;
     }
 
-    public function getVida(){
-          return $this->vida;
+    public function getVida(): int {
+        return $this->vida;
     }
 
-     public function setVida($vida){
-        if($this->vida < 0){
+    public function setVida(int $vida): void {
+        if ($vida < 0) {
             $this->vida = 0;
-            echo "Vida nao pode ser negativa!/n"; 
+            echo "Vida nao pode ser negativa!\n";
             return;
         }
 
-        $this->vida = $vida; 
+        $this->vida = $vida;
     }
 
-
-    public function atacar(): void {
-        echo "$this->nome realizou um ataque!";
-    }
+    abstract public function atacar(): void;
+    abstract public function curar(): void;
 }
 
-$lucas = new Personagem("Lucas", 100, 10);
+$lucas = new Guerreiro("Knight", 100, 10);
 
-$lucas->setvida(50);
+$lucas->setVida(50);
 
-$aurora = new Personagem("Aurora", 50, 5);
-$chloe = new Personagem("Chloe", 30, 3);
+$aurora = new Mago("Aurora", 50, 5);
+$chloe = new Druida("Chloe", 30, 3);
+
+$personagens = [$lucas, $aurora, $chloe];
+foreach ($personagens as $p) {
+    $p->atacar();
+}
 
 $lucas->atacar();
 
@@ -59,12 +64,59 @@ class Guerreiro extends Personagem {
         echo "$this->nome levantou o escudo!";
     }
 
+      public function atacar(): void {
+        echo "$this->nome atacou com um axe!";
+    }
+
+        public function curar(): void {
+                echo "$this->nome usou uma pocao!";
+        }
 }
 
-$guerreiro = new Guerreiro("lucas", 100, 10);
+$guerreiro = new Guerreiro("Knigth", 100, 10);
 
 $guerreiro->atacar(); // metado herdado
 $guerreiro->defender(); // metodo proprio 
+
+class Mago extends Personagem {
+
+      public function atacar(): void {
+        echo "$this->nome lançou um exori amp vis!";
+    }
+
+    public function curar(): void {
+        echo "$this->nome lançou uma magia de cura!";
+    }
+}
+
+$mago = new Mago("Aurora", 50, 5);
+
+$mago ->atacar(); // metodo herdado
+
+class Druida extends Personagem {
+
+      public function atacar(): void {
+        echo "$this->nome lançou um ice strike!";
+    }
+
+    public function curar(): void {
+        echo "$this->nome exura gran!";
+    }
+
+}
+
+
+
+
+
+
+
+
+
+?>
+
+//https://thiago315.devlook.xyz/projeto/resources/Views/Projeto/poo.php
+
 
 //1. o que e uma classe?
 //um molde para criar objetos
@@ -77,5 +129,3 @@ $guerreiro->defender(); // metodo proprio
 
 //4. oque significa extends?
 //herdar caracteristicas e  metados  de outra classe
-
-?>
