@@ -136,3 +136,511 @@ button:hover {
     margin: 0 0 12px;
     font-size: 14px;
 }
+
+.portfolio-page {
+    --portfolio-ink: #172a2a;
+    --portfolio-muted: #63716c;
+    --portfolio-paper: #f5f4ed;
+    --portfolio-green: #c9ef74;
+    --portfolio-coral: #e5755d;
+    display: block;
+    min-height: 100vh;
+    padding: 0;
+    color: var(--portfolio-ink);
+    background-color: var(--portfolio-paper);
+    background-image: linear-gradient(rgb(23 42 42 / 3%) 1px, transparent 1px), linear-gradient(90deg, rgb(23 42 42 / 3%) 1px, transparent 1px);
+    background-size: 36px 36px;
+    font-family: 'Trebuchet MS', 'Segoe UI', sans-serif;
+}
+
+.portfolio-page a {
+    padding: 0;
+    border-radius: 0;
+    color: inherit;
+    background: none;
+    box-shadow: none;
+    font-weight: inherit;
+}
+
+.portfolio-page a:hover {
+    color: var(--portfolio-coral);
+    background: none;
+    transform: none;
+}
+
+.portfolio-page a:focus-visible {
+    outline-color: var(--portfolio-coral);
+}
+
+.portfolio-page header {
+    position: relative;
+    z-index: 1;
+    border-bottom: 1px solid rgb(23 42 42 / 14%);
+}
+
+.portfolio-page .navbar,
+.portfolio-page main,
+.portfolio-page footer {
+    width: min(1120px, calc(100% - 48px));
+    margin: 0 auto;
+}
+
+.portfolio-page .navbar {
+    min-height: 78px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.portfolio-page .logo {
+    font-family: Georgia, serif;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.portfolio-page .logo span {
+    color: var(--portfolio-coral);
+}
+
+.portfolio-page .menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 26px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.portfolio-page .menu a {
+    color: var(--portfolio-muted);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.portfolio-page .menu a:hover {
+    color: var(--portfolio-ink);
+}
+
+.portfolio-page .inicio {
+    min-height: 510px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 48px;
+    padding: 72px 0 88px;
+    border-bottom: 1px solid rgb(23 42 42 / 14%);
+}
+
+.portfolio-page .inicio-conteudo {
+    max-width: 700px;
+}
+
+.portfolio-page .saudacao,
+.portfolio-page .sobretitulo {
+    margin: 0 0 18px;
+    color: var(--portfolio-coral);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.portfolio-page .inicio h1 {
+    margin: 0;
+    color: var(--portfolio-ink);
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 76px;
+    font-weight: 500;
+    line-height: 0.98;
+}
+
+.portfolio-page .inicio h2 {
+    margin: 18px 0 0;
+    color: var(--portfolio-ink);
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.portfolio-page .inicio-descricao {
+    max-width: 480px;
+    margin: 18px 0 28px;
+    color: var(--portfolio-muted);
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.portfolio-page .botao {
+    display: inline-flex;
+    align-items: center;
+    gap: 22px;
+    padding: 15px 19px;
+    background: var(--portfolio-ink);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.portfolio-page .botao:hover {
+    color: var(--portfolio-ink);
+    background: var(--portfolio-green);
+}
+
+.portfolio-page .botao span {
+    color: var(--portfolio-green);
+    font-size: 19px;
+}
+
+.portfolio-page .inicio-selo {
+    width: 184px;
+    height: 184px;
+    flex: 0 0 184px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    border: 1px solid var(--portfolio-ink);
+    background: var(--portfolio-green);
+    transform: rotate(4deg);
+}
+
+.portfolio-page .inicio-selo span {
+    font-size: 11px;
+    font-weight: 800;
+    line-height: 1.4;
+}
+
+.portfolio-page .inicio-selo strong {
+    align-self: flex-end;
+    font-family: Georgia, serif;
+    font-size: 42px;
+    font-weight: 500;
+}
+
+.portfolio-page .secao {
+    padding: 96px 0;
+    border-bottom: 1px solid rgb(23 42 42 / 14%);
+}
+
+.portfolio-page .sobre {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    align-items: center;
+    gap: 90px;
+}
+
+.portfolio-page .sobre-marca {
+    min-height: 280px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--portfolio-ink);
+    background: var(--portfolio-coral);
+    color: var(--portfolio-paper);
+    font-family: Georgia, serif;
+    font-size: 104px;
+}
+
+.portfolio-page .titulo-secao {
+    margin: 0;
+    color: var(--portfolio-ink);
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 44px;
+    font-weight: 500;
+    line-height: 1.08;
+}
+
+.portfolio-page .sobre-texto > p:not(.sobretitulo) {
+    max-width: 590px;
+    color: var(--portfolio-muted);
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.portfolio-page .secao-destaque {
+    width: 100%;
+    padding-right: max(24px, calc((100% - 1120px) / 2));
+    padding-left: max(24px, calc((100% - 1120px) / 2));
+    background: #e9eee2;
+}
+
+.portfolio-page #habilidades {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    align-items: start;
+    gap: 72px;
+}
+
+.portfolio-page .lista-habilidades {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-top: 1px solid rgb(23 42 42 / 24%);
+}
+
+.portfolio-page .habilidade {
+    min-height: 112px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 15px 18px;
+    border-bottom: 1px solid rgb(23 42 42 / 24%);
+}
+
+.portfolio-page .habilidade:nth-child(odd) {
+    border-right: 1px solid rgb(23 42 42 / 24%);
+}
+
+.portfolio-page .habilidade span {
+    color: var(--portfolio-coral);
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.portfolio-page .habilidade strong {
+    font-family: Georgia, serif;
+    font-size: 23px;
+}
+
+.portfolio-page .habilidade small {
+    color: var(--portfolio-muted);
+    font-size: 12px;
+}
+
+.portfolio-page .projetos-cabecalho {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 32px;
+    margin-bottom: 38px;
+}
+
+.portfolio-page .subtitulo-secao {
+    max-width: 330px;
+    margin: 0 0 5px;
+    color: var(--portfolio-muted);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.portfolio-page .projetos-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-top: 1px solid rgb(23 42 42 / 24%);
+    border-left: 1px solid rgb(23 42 42 / 24%);
+}
+
+.portfolio-page .projeto-card {
+    min-height: 270px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 25px 28px;
+    border-right: 1px solid rgb(23 42 42 / 24%);
+    border-bottom: 1px solid rgb(23 42 42 / 24%);
+    background: rgb(245 244 237 / 72%);
+    transition: background-color 180ms ease, transform 180ms ease;
+}
+
+.portfolio-page .projeto-card:hover {
+    background: #fff;
+    transform: translateY(-3px);
+}
+
+.portfolio-page .projeto-numero {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--portfolio-coral);
+    font-family: Georgia, serif;
+    font-size: 30px;
+}
+
+.portfolio-page .projeto-numero span {
+    color: var(--portfolio-muted);
+    font-family: 'Trebuchet MS', 'Segoe UI', sans-serif;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.portfolio-page .projeto-card h3 {
+    margin: 20px 0 8px;
+    font-family: Georgia, serif;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.portfolio-page .projeto-card p {
+    margin: 0 0 15px;
+    color: var(--portfolio-muted);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.portfolio-page .tecnologias {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: auto;
+}
+
+.portfolio-page .tecnologias span {
+    padding: 5px 8px;
+    border: 1px solid rgb(23 42 42 / 20%);
+    color: var(--portfolio-muted);
+    font-size: 10px;
+}
+
+.portfolio-page .link-projeto {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 18px;
+    padding-top: 12px;
+    border-top: 1px solid rgb(23 42 42 / 18%);
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.portfolio-page .contato {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 30px;
+    width: auto;
+    margin: 0 calc(50% - 50vw);
+    padding-right: max(24px, calc((100vw - 1120px) / 2));
+    padding-left: max(24px, calc((100vw - 1120px) / 2));
+    background: var(--portfolio-green);
+}
+
+.portfolio-page .contato .sobretitulo {
+    color: #536b20;
+}
+
+.portfolio-page .contato-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 28px;
+    padding: 16px 20px;
+    border: 1px solid var(--portfolio-ink);
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.portfolio-page .contato-link:hover {
+    color: #fff;
+    background: var(--portfolio-ink);
+}
+
+.portfolio-page footer {
+    min-height: 82px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+}
+
+.portfolio-page footer p,
+.portfolio-page footer a {
+    margin: 0;
+    color: var(--portfolio-muted);
+    font-size: 11px;
+}
+
+.portfolio-page footer strong {
+    color: var(--portfolio-ink);
+}
+
+@media (max-width: 700px) {
+    .portfolio-page .navbar,
+    .portfolio-page main,
+    .portfolio-page footer {
+        width: min(100% - 36px, 540px);
+    }
+
+    .portfolio-page .navbar {
+        min-height: 68px;
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+        gap: 12px;
+        padding: 14px 0;
+    }
+
+    .portfolio-page .menu {
+        gap: 8px 17px;
+    }
+
+    .portfolio-page .menu a {
+        font-size: 12px;
+    }
+
+    .portfolio-page .inicio {
+        min-height: auto;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 32px;
+        padding: 70px 0;
+    }
+
+    .portfolio-page .inicio h1 {
+        font-size: 54px;
+    }
+
+    .portfolio-page .inicio h2 {
+        font-size: 18px;
+    }
+
+    .portfolio-page .inicio-selo {
+        width: 130px;
+        height: 130px;
+        flex-basis: 130px;
+        padding: 14px;
+    }
+
+    .portfolio-page .inicio-selo strong {
+        font-size: 30px;
+    }
+
+    .portfolio-page .secao {
+        padding-top: 66px;
+        padding-bottom: 66px;
+    }
+
+    .portfolio-page .sobre,
+    .portfolio-page #habilidades {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .portfolio-page .sobre-marca {
+        min-height: 190px;
+        font-size: 80px;
+    }
+
+    .portfolio-page .titulo-secao {
+        font-size: 36px;
+    }
+
+    .portfolio-page .projetos-cabecalho,
+    .portfolio-page .contato {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .portfolio-page .projetos-container {
+        grid-template-columns: 1fr;
+    }
+
+    .portfolio-page .projeto-card {
+        min-height: 250px;
+        padding: 22px;
+    }
+
+    .portfolio-page footer {
+        min-height: 100px;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 18px 0;
+    }
+}

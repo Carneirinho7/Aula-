@@ -121,3 +121,6 @@ API,REST,PHP,JSON,ENDPOINT
 
 ENDPOINT= e um ponto de aceso para a API identificado pela URL e pelo metado HTTP utilizado podendo ser = GET,PUT,DELETE,POST
 
+
+WORD
+
