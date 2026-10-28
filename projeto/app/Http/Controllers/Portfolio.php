@@ -22,6 +22,10 @@ class PortifolioController {
         $this->exibir('login-basico.php');
     }
 
+    public function poo2(): void {
+        $this->exibir('poo2.php');
+    }
+
     private function exibir(string $arquivo): void {
         require __DIR__ . "/../../../resources/Views/Projeto/" . $arquivo;
     }
