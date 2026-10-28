@@ -83,6 +83,13 @@
                     <div class="tecnologias"><span>HTML</span><span>CSS</span><span>PHP</span></div>
                     <a href="?rota=login-basico" class="link-projeto">Ver projeto</a>
                 </div>
+                <div class="projeto-card">
+                    <h3>Controle de produção industrial</h3>
+                    <p>Sistema para cadastrar máquinas e acompanhar a produção, praticando classes abstratas, herança e polimorfismo em PHP.</p>
+                    <div class="tecnologias"><span>PHP</span><span>POO</span><span>Sessões</span></div>
+                    <a href="?rota=poo2" class="link-projeto">Ver projeto</a>
+                </div>
+                
             </div>
         </section>
 
