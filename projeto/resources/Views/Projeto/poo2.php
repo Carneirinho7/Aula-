@@ -1,8 +1,4 @@
 <?php
-if (session_status() !== PHP_SESSION_ACTIVE) {
-    session_start();
-}
-
 // Sistema de controle de produção industrial.
 abstract class maquina
 {
