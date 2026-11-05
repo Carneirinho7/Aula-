@@ -1,38 +1,28 @@
 <?php
-     require_once __DIR__ . '/../../../../app/Http/Controllers/Portfolio.php';
-     require_once __DIR__ . '/../../../../app/Http/Controllers/HelpdeskController.php';
 
-    
+use App\Http\Controllers\HelpdeskController;
+use App\Http\Controllers\Portfolio;
 
-    // Listando em arrrys as rotas que vamos criar  .Json  ja exites 
-     return[
-         'GET'  => [
-            'portfolio' =>[new PortifolioController(), 'index'],
-            'helpdesk'  =>[new HelpdeskController(), 'index'],
-            'idade'     =>[new PortifolioController(), 'idade'],
-            'jogos'     =>[new PortifolioController(), 'jogos'],
-            'notas'     =>[new PortifolioController(), 'notas'],
-            'login-basico' =>[new PortifolioController(), 'loginBasico'],
-            'poo2'      =>[new PortifolioController(), 'poo2'],
+$portfolio = new Portfolio();
+$helpdesk = new HelpdeskController();
 
-            //outras atividades
-          ],
-
-          'POST' => [
-               'helpdesk' =>[new HelpdeskController(), ''],
-               'poo2'     =>[new PortifolioController(), 'poo2'],
-          ],
-          
-
-
-     ];
-
-
-
-
-
-
-
-
-
-?>
+return [
+    'GET' => [
+        '/' => [$portfolio, 'index'],
+        'portfolio' => [$portfolio, 'index'],
+        'helpdesk' => [$helpdesk, 'index'],
+        'idade' => [$portfolio, 'idade'],
+        'jogos' => [$portfolio, 'jogos'],
+        'notas' => [$portfolio, 'notas'],
+        'login-basico' => [$portfolio, 'loginBasico'],
+        'poo2' => [$portfolio, 'poo2'],
+    ],
+    'POST' => [
+        'helpdesk' => [$helpdesk, 'index'],
+        'idade' => [$portfolio, 'idade'],
+        'jogos' => [$portfolio, 'jogos'],
+        'notas' => [$portfolio, 'notas'],
+        'login-basico' => [$portfolio, 'loginBasico'],
+        'poo2' => [$portfolio, 'poo2'],
+    ],
+];
