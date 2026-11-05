@@ -23,8 +23,6 @@ try {
     );
 
 } catch (PDOException $erro) {
-
-    echo "Erro ao conectar:".$erro->getMessage();
-
+    throw new RuntimeException('Não foi possível conectar ao banco de dados.', 0, $erro);
 }
 ?>

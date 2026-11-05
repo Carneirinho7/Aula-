@@ -1,38 +1,46 @@
 <?php
 
-class Chamado{ 
+namespace App\Models;
 
-    public function listarChamados(): array {
-    $arquivo = __DIR__ . '/chamados.json';
-
-    if (!file_exists($arquivo)) {
-        file_put_contents($arquivo, '[]');
+class Chamado
+{
+    private function caminhoArquivo(): string
+    {
+        return storage_path('app/chamados.json');
     }
 
-    $dados = file_get_contents($arquivo);
-    if ($dados === false) {
-        return [];
+    public function listarChamados(): array
+    {
+        $arquivo = $this->caminhoArquivo();
+
+        if (!file_exists($arquivo)) {
+            return [];
+        }
+
+        $dados = file_get_contents($arquivo);
+        if ($dados === false) {
+            throw new \RuntimeException('Não foi possível ler os chamados.');
+        }
+
+        $chamados = json_decode($dados, true);
+
+        if (!is_array($chamados)) {
+            throw new \RuntimeException('O arquivo de chamados contém dados inválidos.');
+        }
+
+        return $chamados;
     }
 
-    $chamados = json_decode($dados, true);
+    public function salvarChamados(array $chamados): bool
+    {
+        $dados = json_encode($chamados, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 
-    if (!is_array($chamados)) {
-        return [];
+        if ($dados === false) {
+            return false;
+        }
+
+        return file_put_contents($this->caminhoArquivo(), $dados, LOCK_EX) !== false;
     }
-
-    return $chamados;
-}
-
-public function salvarChamados(array $chamados): bool {
-    $arquivo = __DIR__ . '/chamados.json';
-    $dados = json_encode($chamados, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-
-    if ($dados === false) {
-        return false;
-    }
-
-    return file_put_contents($arquivo, $dados) !== false;
-}
 
 
 public function cadastrarChamado(string $nome, string $setor, string $equipamento, string $descricao, string $prioridade): bool {
@@ -123,7 +131,4 @@ public function contarChamados(): array {
 }
 
 }
-
-?>
-
 

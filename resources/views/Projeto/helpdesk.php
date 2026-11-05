@@ -1,60 +1,3 @@
-<?php
-require_once __DIR__ . 'helpdesk-func.php';
-
-$mensagem = '';
-
-//identificar a opereçao solicitada
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Cadastrar chamado
-    // O operador ?? e chamado  de operador  de coalescencia nula 
-    // Ele significa
-    // Utilizar  o valor  de esquerda, se ele existir  e nao for nulo Caso contrario, utilize  o valor  da direita 
-    if (isset($_POST['cadastrar'])) {
-        $nome = is_string($_POST['nome'] ?? null) ? $_POST['nome'] : '';
-        $setor = is_string($_POST['setor'] ?? null) ? $_POST['setor'] : '';
-        $equipamento = is_string($_POST['equipamento'] ?? null) ? $_POST['equipamento'] : '';
-        $descricao = is_string($_POST['descricao'] ?? null) ? $_POST['descricao'] : '';
-        $prioridade = is_string($_POST['prioridade'] ?? null) ? $_POST['prioridade'] : '';
-
-        //if  (isset($_POST["acao"])){
-        //    $acao = $_POST["acao"];
-        // } else {$acao = "";
-        //;
-        
-        if ($this->cadastrarChamado($nome, $setor, $equipamento, $descricao, $prioridade)) {
-            $mensagem = 'Chamado cadastrado com sucesso!';
-        } else {
-            $mensagem = 'Preencha o nome e a descrição do problema.';
-        }
-    }
-
-    // Atualizar chamado
-    if (isset($_POST['atualizar'])) {
-        $numero = filter_var($_POST['numero'] ?? '', FILTER_VALIDATE_INT);
-        $status = is_string($_POST['status'] ?? null) ? $_POST['status'] : '';
-
-        if ($numero !== false && $this->atualizarChamado($numero, $status)) {
-            $mensagem = 'Status atualizado!';
-        } else {
-            $mensagem = 'Não foi possível atualizar o chamado.';
-        }
-    }
-
-    // Excluir chamado
-    if (isset($_POST['excluir'])) {
-        $numero = filter_var($_POST['numero'] ?? '', FILTER_VALIDATE_INT);
-
-        if ($numero !== false && $this->excluirChamado($numero)) {
-            $mensagem = 'Chamado excluído!';
-        } else {
-            $mensagem = 'Chamado não encontrado.';
-        }
-    }
-}
-
-$chamados = $this->listarChamados();
-$quantidades = $this->contarChamados();
-?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -64,10 +7,11 @@ $quantidades = $this->contarChamados();
 <body>
     <h1>Sistema de Helpdesk</h1>
 
-    <p><?php echo htmlspecialchars($mensagem, ENT_QUOTES, 'UTF-8'); ?></p>
+    <p><?php echo htmlspecialchars((string) $mensagem, ENT_QUOTES, 'UTF-8'); ?></p>
 
     <h2>Abrir chamado</h2>
-    <form method="POST">
+    <form method="POST" action="<?= htmlspecialchars(route('helpdesk'), ENT_QUOTES, 'UTF-8') ?>">
+        <input type="hidden" name="_token" value="<?= htmlspecialchars(csrf_token(), ENT_QUOTES, 'UTF-8') ?>">
         <label>Nome do funcionário:</label><br>
         <input type="text" name="nome"><br><br>
 
@@ -119,7 +63,8 @@ $quantidades = $this->contarChamados();
         <p>Prioridade: <?php echo htmlspecialchars((string) ($chamado['prioridade'] ?? ''), ENT_QUOTES, 'UTF-8'); ?></p>
         <p>Status: <?php echo htmlspecialchars((string) ($chamado['status'] ?? ''), ENT_QUOTES, 'UTF-8'); ?></p>
 
-        <form method="POST">
+        <form method="POST" action="<?= htmlspecialchars(route('helpdesk'), ENT_QUOTES, 'UTF-8') ?>">
+            <input type="hidden" name="_token" value="<?= htmlspecialchars(csrf_token(), ENT_QUOTES, 'UTF-8') ?>">
             <input type="hidden" name="numero" value="<?php echo $numero; ?>">
             <select name="status">
                 <option>Aberto</option>
@@ -129,7 +74,8 @@ $quantidades = $this->contarChamados();
             <button type="submit" name="atualizar">Atualizar status</button>
         </form>
 
-        <form method="POST">
+        <form method="POST" action="<?= htmlspecialchars(route('helpdesk'), ENT_QUOTES, 'UTF-8') ?>">
+            <input type="hidden" name="_token" value="<?= htmlspecialchars(csrf_token(), ENT_QUOTES, 'UTF-8') ?>">
             <input type="hidden" name="numero" value="<?php echo $numero; ?>">
             <button type="submit" name="excluir">Excluir chamado</button>
         </form>

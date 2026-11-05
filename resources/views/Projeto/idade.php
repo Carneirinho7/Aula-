@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 </head>
 <body class="form-page">
     <nav class="form-nav" aria-label="Navegação">
-        <a class="back-link" href="?rota=portfolio">Voltar ao portfólio</a>
+        <a class="back-link" href="<?= htmlspecialchars(route('portfolio'), ENT_QUOTES, 'UTF-8') ?>">Voltar ao portfólio</a>
     </nav>
     <main class="form-shell">
         <header class="form-heading">

@@ -124,7 +124,7 @@ $totalProducao = array_sum(
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#101b2c">
     <title>Controle de produção | Indústria</title>
-    <link rel="stylesheet" href="../../css/poo2.css">
+    <link rel="stylesheet" href="/css/poo2.css">
 </head>
 <body class="maquinas-page">
     <main class="painel">

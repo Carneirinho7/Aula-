@@ -1,41 +1,38 @@
 <?php
 
-class PortifolioController {
-    public function index() {
-        // Lógica para exibir a página do portfólio
-        require __DIR__ . "/../../../resources/Views/Projeto/portfolio.php";
+namespace App\Http\Controllers;
+
+use Illuminate\Contracts\View\View;
+
+class Portfolio extends Controller
+{
+    public function index(): View
+    {
+        return view('Projeto.portfolio');
     }
 
-    public function idade(): void {
-        $this->exibir('idade.php');
+    public function idade(): View
+    {
+        return view('Projeto.idade');
     }
 
-    public function jogos(): void {
-        $this->exibir('jogos.php');
+    public function jogos(): View
+    {
+        return view('Projeto.jogos');
     }
 
-    public function notas(): void {
-        $this->exibir('notas.php');
+    public function notas(): View
+    {
+        return view('Projeto.notas');
     }
 
-    public function loginBasico(): void {
-        $this->exibir('login-basico.php');
+    public function loginBasico(): View
+    {
+        return view('Projeto.login-basico');
     }
 
-    public function poo2(): void {
-        $this->exibir('poo2.php');
-    }
-
-    private function exibir(string $arquivo): void {
-        require __DIR__ . "/../../../resources/Views/Projeto/" . $arquivo;
+    public function poo2(): View
+    {
+        return view('Projeto.poo2');
     }
 }
-
-
-
-
-
-
-
-
-?>

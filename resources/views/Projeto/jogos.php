@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . "/../../../config/conexao.php";
+require __DIR__ . "/../../../database/conexao.php";
 
 $sql = "CREATE TABLE IF NOT EXISTS jogos (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -33,7 +33,7 @@ if (isset($_POST["nome"])) {
 </head>
 <body class="form-page">
     <nav class="form-nav" aria-label="Navegação">
-        <a class="back-link" href="?rota=portfolio">Voltar ao portfólio</a>
+        <a class="back-link" href="<?= htmlspecialchars(route('portfolio'), ENT_QUOTES, 'UTF-8') ?>">Voltar ao portfólio</a>
     </nav>
     <main class="form-shell">
         <header class="form-heading">
