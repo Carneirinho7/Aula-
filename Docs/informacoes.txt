@@ -123,6 +123,6 @@ ENDPOINT= e um ponto de aceso para a API identificado pela URL e pelo metado HTT
 
 
 CD ..
-RN -RF WW
+RN -RF WWW
 Git clone link do repositorio
 
