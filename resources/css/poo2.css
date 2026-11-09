@@ -5,7 +5,7 @@
 body.maquinas-page {
     margin: 0;
     padding: 20px;
-    background-color: #eaf2f8;
+    background-color: #f8f8f8;
     color: #333;
     font-family: Arial, sans-serif;
 }
@@ -20,7 +20,7 @@ body.maquinas-page {
     justify-content: space-between;
     align-items: center;
     padding: 12px 0;
-    border-bottom: 1px solid #b8cbd9;
+    border-bottom: 1px solid #8da0ad;
 }
 
 .identidade {
@@ -74,7 +74,7 @@ body.maquinas-page {
 }
 
 .introducao > p:last-child {
-    color: #61717d;
+    color: #586d7e;
     line-height: 1.5;
 }
 
@@ -99,7 +99,7 @@ body.maquinas-page {
     padding: 10px;
     border-radius: 5px;
     background-color: #e1f1f8;
-    color: #2f80a8;
+    color: #2887b6;
     font-weight: bold;
 }
 
