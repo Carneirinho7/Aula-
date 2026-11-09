@@ -1,7 +1,17 @@
-<?php
+<?php 
 
-use Illuminate\Support\Facades\Route;
+    require_once __DIR__ . '/../app/Http/Controllers/HelpdeskController.php';    
 
-Route::get('/', function () {
-    return view('welcome');
-});
+    return[
+        'GET' =>[
+            'portifolio' => [new PortifolioController(), 'index'],
+            'helpdesk' => [new HelpdeskController(), 'index'],
+            'jogos' => [],
+            'login' => [],
+            'notas' => [],
+            'idade' => []
+        ],
+            'POST' => [
+                'helpdesk' => [new HelpdeskController, ''],
+        ]
+            ];
