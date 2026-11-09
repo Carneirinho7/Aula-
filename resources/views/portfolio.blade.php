@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/projeto/resources/css/index.css">
     <title>Thiago Carneiro | Portfólio</title>
 
-    @vite('resources/css/index.css')
+    @vite(['resources/css/index.css'])
 
 </head>
 <body class="portfolio-page">
