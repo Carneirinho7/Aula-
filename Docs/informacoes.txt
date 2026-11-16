@@ -216,5 +216,19 @@ oque Significa SGBD?
 sistema gerenciador de banco de dados
 
 o que e PDO?
+e uma interface do PHP para acessar bancos de dados por meio de drivers, incluindo MySQL
 
- 
+como criamos uma conexao PDO com MySQL?
+criar = $pdo = new PDO('mysql:host=localhost;dbname=escola;charset=utf8mb4', 'usario', 'senha');
+
+qual a diferença de $pdo->exec(); e $pdo->query(); ?
+exec() executa um comando SQL sem retorno, query() executa uma consulta SQL com retorno
+
+para que servem fetch() e fetchALL()?
+fetch() recupera a proxima linha de um resultado; fetchALL() recupera todas as linhas restantes em um array
+
+qual e o "CRUD" do banco de dados
+C - INSERT INTO | R - SELECT | U - UPDADE | D - DELETE
+
+
+
