@@ -119,7 +119,7 @@ Significado API = e uma maneira de permitir que um software se comunique com out
 
 API,REST,PHP,JSON,ENDPOINT
 
-ENDPOINT= e um ponto de aceso para a API identificado pela URL e pelo metado HTTP utilizado podendo ser = GET,PUT,DELETE,POST
+ENDPOINT= e um ponto de acesso para a API identificado pela URL e pelo metado HTTP utilizado podendo ser = GET,PUT,DELETE,POST
 
 
 CD ..
@@ -236,3 +236,12 @@ INERTIA = PONTE ENTRE BACK E front
 VITE = PROCESSA E COMPILA O FRONT
 
 LARAVEL = BACKEND | REACT = FRONTEND 
+
+alterei coisas no computador:
+git commit  e git pull pleo github desktop
+depois  git pull na vps 
+
+alterei  coisas na vps
+git add. | git commit -m"" |git push origin main 
+depois 
+git pull no computador (em outro terminal)
